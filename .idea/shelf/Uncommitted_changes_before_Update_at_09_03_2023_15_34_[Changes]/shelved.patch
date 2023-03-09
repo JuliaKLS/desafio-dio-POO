@@ -1,0 +1,441 @@
+Index: src/br/com/dio/desafio/dominio/Curso.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package br.com.dio.desafio.dominio;\r\n\r\npublic class Curso {\r\n    private String titulo;\r\n    private String descricao;\r\n    private int cargaHoraria;\r\n\r\n    public Curso(){\r\n\r\n    }\r\n\r\n    public String getTitulo() {\r\n        return titulo;\r\n    }\r\n\r\n    public void setTitulo(String titulo) {\r\n        this.titulo = titulo;\r\n    }\r\n\r\n    public String getDescricao() {\r\n        return descricao;\r\n    }\r\n\r\n    public void setDescricao(String descricao) {\r\n        this.descricao = descricao;\r\n    }\r\n\r\n    public int getCargaHoraria() {\r\n        return cargaHoraria;\r\n    }\r\n\r\n    public void setCargaHoraria(int cargaHoraria) {\r\n        this.cargaHoraria = cargaHoraria;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return \"Curso{\" +\r\n                \"titulo='\" + titulo + '\\'' +\r\n                \", descricao='\" + descricao + '\\'' +\r\n                \", cargaHoraria=\" + cargaHoraria +\r\n                '}';\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/br/com/dio/desafio/dominio/Curso.java b/src/br/com/dio/desafio/dominio/Curso.java
+--- a/src/br/com/dio/desafio/dominio/Curso.java	(revision b82e2b92d82dc9a9d37ec58ba4be1c0b2f47a777)
++++ b/src/br/com/dio/desafio/dominio/Curso.java	(date 1678374590516)
+@@ -1,30 +1,18 @@
+ package br.com.dio.desafio.dominio;
+ 
+-public class Curso {
+-    private String titulo;
+-    private String descricao;
++public class Curso extends Conteudo {
++
+     private int cargaHoraria;
+ 
++    @Override
++    public double calcularXp() {
++        return XP_PADRA0 * cargaHoraria;
++    }
++
+     public Curso(){
+ 
+     }
+ 
+-    public String getTitulo() {
+-        return titulo;
+-    }
+-
+-    public void setTitulo(String titulo) {
+-        this.titulo = titulo;
+-    }
+-
+-    public String getDescricao() {
+-        return descricao;
+-    }
+-
+-    public void setDescricao(String descricao) {
+-        this.descricao = descricao;
+-    }
+-
+     public int getCargaHoraria() {
+         return cargaHoraria;
+     }
+@@ -36,9 +24,11 @@
+     @Override
+     public String toString() {
+         return "Curso{" +
+-                "titulo='" + titulo + '\'' +
+-                ", descricao='" + descricao + '\'' +
++                "titulo='" + getTitulo() + '\'' +
++                ", descricao='" + getDescricao() + '\'' +
+                 ", cargaHoraria=" + cargaHoraria +
+                 '}';
+     }
++
++
+ }
+Index: src/br/com/dio/desafio/dominio/Mentoria.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package br.com.dio.desafio.dominio;\r\n\r\nimport java.time.LocalDate;\r\n\r\npublic class Mentoria {\r\n    private String titulo;\r\n    private String descricao;\r\n    private LocalDate data;\r\n\r\n    public Mentoria(){\r\n\r\n    }\r\n\r\n    public String getTitulo() {\r\n        return titulo;\r\n    }\r\n\r\n    public void setTitulo(String titulo) {\r\n        this.titulo = titulo;\r\n    }\r\n\r\n    public String getDescricao() {\r\n        return descricao;\r\n    }\r\n\r\n    public void setDescricao(String descricao) {\r\n        this.descricao = descricao;\r\n    }\r\n\r\n    public LocalDate getData() {\r\n        return data;\r\n    }\r\n\r\n    public void setData(LocalDate data) {\r\n        this.data = data;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return \"Mentoria{\" +\r\n                \"titulo='\" + titulo + '\\'' +\r\n                \", descricao='\" + descricao + '\\'' +\r\n                \", data=\" + data +\r\n                '}';\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/br/com/dio/desafio/dominio/Mentoria.java b/src/br/com/dio/desafio/dominio/Mentoria.java
+--- a/src/br/com/dio/desafio/dominio/Mentoria.java	(revision b82e2b92d82dc9a9d37ec58ba4be1c0b2f47a777)
++++ b/src/br/com/dio/desafio/dominio/Mentoria.java	(date 1678374290477)
+@@ -2,31 +2,19 @@
+ 
+ import java.time.LocalDate;
+ 
+-public class Mentoria {
+-    private String titulo;
+-    private String descricao;
++public class Mentoria extends Conteudo{
++
+     private LocalDate data;
+ 
++    @Override
++    public double calcularXp() {
++        return XP_PADRA0 + 20;
++    }
++
+     public Mentoria(){
+ 
+     }
+ 
+-    public String getTitulo() {
+-        return titulo;
+-    }
+-
+-    public void setTitulo(String titulo) {
+-        this.titulo = titulo;
+-    }
+-
+-    public String getDescricao() {
+-        return descricao;
+-    }
+-
+-    public void setDescricao(String descricao) {
+-        this.descricao = descricao;
+-    }
+-
+     public LocalDate getData() {
+         return data;
+     }
+@@ -38,9 +26,11 @@
+     @Override
+     public String toString() {
+         return "Mentoria{" +
+-                "titulo='" + titulo + '\'' +
+-                ", descricao='" + descricao + '\'' +
++                "titulo='" + getTitulo()+ '\'' +
++                ", descricao='" + getDescricao() + '\'' +
+                 ", data=" + data +
+                 '}';
+     }
++
++
+ }
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import br.com.dio.desafio.dominio.Curso;\r\nimport br.com.dio.desafio.dominio.Mentoria;\r\n\r\nimport java.time.LocalDate;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n\r\n        Curso curso1 = new Curso();\r\n        curso1.setTitulo(\"curso java\");\r\n        curso1.setDescricao(\"descricao do curso java\");\r\n        curso1.setCargaHoraria(8);\r\n\r\n        Curso curso2 = new Curso();\r\n        curso2.setTitulo(\"curso js\");\r\n        curso2.setDescricao(\"descricao do curso js\");\r\n        curso2.setCargaHoraria(4);\r\n\r\n        Mentoria mentoria = new Mentoria();\r\n        mentoria.setTitulo(\"mentoria java\");\r\n        mentoria.setDescricao(\"descricao mentoria java\");\r\n        mentoria.setData(LocalDate.now());\r\n\r\n\r\n        System.out.println(curso1);\r\n        System.out.println(curso2);\r\n        System.out.println(mentoria);\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision b82e2b92d82dc9a9d37ec58ba4be1c0b2f47a777)
++++ b/src/Main.java	(date 1678386784247)
+@@ -1,4 +1,6 @@
++import br.com.dio.desafio.dominio.Bootcamp;
+ import br.com.dio.desafio.dominio.Curso;
++import br.com.dio.desafio.dominio.Dev;
+ import br.com.dio.desafio.dominio.Mentoria;
+ 
+ import java.time.LocalDate;
+@@ -22,9 +24,44 @@
+         mentoria.setData(LocalDate.now());
+ 
+ 
+-        System.out.println(curso1);
+-        System.out.println(curso2);
+-        System.out.println(mentoria);
++//        System.out.println(curso1);
++//        System.out.println(curso2);
++//        System.out.println(mentoria);
++
++        Bootcamp bootcamp = new Bootcamp();
++        bootcamp.setNome("Bootcamp Java Developer");
++        bootcamp.setDescricao("Descricao Bootcamp Java Developer");
++        bootcamp.getConteudo().add(curso1);
++        bootcamp.getConteudo().add(curso2);
++        bootcamp.getConteudo().add(mentoria);
++
++        Dev dev1 = new Dev();
++        dev1.setNome("julia");
++        dev1.inscreverBootcamp(bootcamp);
++        System.out.println("Conteúdos Inscritos Julia:" + dev1.getConteudosInscritos());
++        dev1.progredir();
++        dev1.progredir();
++        System.out.println("---------");
++        System.out.println("Conteúdos Inscritos Julia:" + dev1.getConteudosInscritos());
++        System.out.println("Conteúdos Concluídos Julia" + dev1.getConteudosConcluidos());
++        System.out.println("XP: " + dev1.calcularTotalXp());
++
++
++        Dev dev2 = new Dev();
++        dev2.setNome("Luna");
++        dev2.inscreverBootcamp(bootcamp);
++        System.out.println("Conteúdos Inscritos Luna:" + dev2.getConteudosInscritos());
++        dev2.progredir();
++        dev2.progredir();
++        dev2.progredir();
++        System.out.println("---------");
++        System.out.println("Conteúdos Inscritos Luna:" + dev2.getConteudosInscritos());
++        System.out.println("Conteúdos Concluídos Luna" + dev2.getConteudosConcluidos());
++        System.out.println("XP: " + dev2.calcularTotalXp());
++
++
++
++
+ 
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8d1849b5-70d1-4ef5-86a6-fa3bb8007428\" name=\"Changes\" comment=\"first commit\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/uiDesigner.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/Main.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/br/com/dio/desafio/dominio/Curso.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/br/com/dio/desafio/dominio/Mentoria.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2MmN0qed2xsIfLTydFNQRXy7Oee\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ChangesTree.GroupingKeys\" value=\"module&#10;directory\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.0\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.0\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"desafio-dio-POO\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"8d1849b5-70d1-4ef5-86a6-fa3bb8007428\" name=\"Changes\" comment=\"\" />\r\n      <created>1678368580054</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1678368580054</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"first commit\">\r\n      <created>1678369606977</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1678369606977</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"first commit\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"first commit\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision b82e2b92d82dc9a9d37ec58ba4be1c0b2f47a777)
++++ b/.idea/workspace.xml	(date 1678379319397)
+@@ -4,12 +4,14 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="8d1849b5-70d1-4ef5-86a6-fa3bb8007428" name="Changes" comment="first commit">
+-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/br/com/dio/desafio/dominio/Curso.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/br/com/dio/desafio/dominio/Mentoria.java" afterDir="false" />
++    <list default="true" id="8d1849b5-70d1-4ef5-86a6-fa3bb8007428" name="Changes" comment="classes: mentoria e curso">
++      <change afterPath="$PROJECT_DIR$/src/br/com/dio/desafio/dominio/Bootcamp.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/br/com/dio/desafio/dominio/Conteudo.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/br/com/dio/desafio/dominio/Dev.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/br/com/dio/desafio/dominio/Curso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/dio/desafio/dominio/Curso.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/br/com/dio/desafio/dominio/Mentoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/dio/desafio/dominio/Mentoria.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -71,7 +73,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1678369606977</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="classes: mentoria e curso">
++      <created>1678373127538</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1678373127538</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -87,6 +96,7 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="first commit" />
+-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
++    <MESSAGE value="classes: mentoria e curso" />
++    <option name="LAST_COMMIT_MESSAGE" value="classes: mentoria e curso" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/br/com/dio/desafio/dominio/Bootcamp.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/br/com/dio/desafio/dominio/Bootcamp.java b/src/br/com/dio/desafio/dominio/Bootcamp.java
+new file mode 100644
+--- /dev/null	(date 1678378077711)
++++ b/src/br/com/dio/desafio/dominio/Bootcamp.java	(date 1678378077711)
+@@ -0,0 +1,70 @@
++package br.com.dio.desafio.dominio;
++
++import java.time.LocalDate;
++import java.util.HashSet;
++import java.util.LinkedHashSet;
++import java.util.Objects;
++import java.util.Set;
++
++public class Bootcamp {
++    private String nome;
++    private String descricao;
++    private final LocalDate dataInicial = LocalDate.now();
++    private final LocalDate dataFinal = dataInicial.plusDays(45);
++    private Set<Dev> devsInscritos = new HashSet<>();
++    private Set<Conteudo> conteudo = new LinkedHashSet<>();
++
++    public String getNome() {
++        return nome;
++    }
++
++    public void setNome(String nome) {
++        this.nome = nome;
++    }
++
++    public String getDescricao() {
++        return descricao;
++    }
++
++    public void setDescricao(String descricao) {
++        this.descricao = descricao;
++    }
++
++    public LocalDate getDataInicial() {
++        return dataInicial;
++    }
++
++    public LocalDate getDataFinal() {
++        return dataFinal;
++    }
++
++    public Set<Dev> getDevsInscritos() {
++        return devsInscritos;
++    }
++
++    public void setDevsInscritos(Set<Dev> devsInscritos) {
++        this.devsInscritos = devsInscritos;
++    }
++
++    public Set<Conteudo> getConteudo() {
++        return conteudo;
++    }
++
++    public void setConteudo(Set<Conteudo> conteudo) {
++        this.conteudo = conteudo;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        Bootcamp bootcamp = (Bootcamp) o;
++        return Objects.equals(nome, bootcamp.nome) && Objects.equals(descricao, bootcamp.descricao) && Objects.equals(dataInicial, bootcamp.dataInicial) && Objects.equals(dataFinal, bootcamp.dataFinal) && Objects.equals(devsInscritos, bootcamp.devsInscritos) && Objects.equals(conteudo, bootcamp.conteudo);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(nome, descricao, dataInicial, dataFinal, devsInscritos, conteudo);
++    }
++}
++
+Index: src/br/com/dio/desafio/dominio/Dev.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/br/com/dio/desafio/dominio/Dev.java b/src/br/com/dio/desafio/dominio/Dev.java
+new file mode 100644
+--- /dev/null	(date 1678378804890)
++++ b/src/br/com/dio/desafio/dominio/Dev.java	(date 1678378804890)
+@@ -0,0 +1,69 @@
++package br.com.dio.desafio.dominio;
++
++import java.util.LinkedHashSet;
++import java.util.Objects;
++import java.util.Optional;
++import java.util.Set;
++
++public class Dev {
++    private String nome;
++    private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
++    private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
++
++    public void inscreverBootcamp(Bootcamp bootcamp){
++        this.conteudosInscritos.addAll(bootcamp.getConteudo());
++        bootcamp.getDevsInscritos().add(this);
++    }
++
++    public void progredir(){
++        Optional<Conteudo> conteudo =  this.conteudosInscritos.stream().findFirst();
++        if (conteudo.isPresent()){
++            this.conteudosConcluidos.add(conteudo.get());
++            this.conteudosInscritos.remove(conteudo.get());
++        }else {
++            System.err.println("você não está matriculado em nenhum conteúdo");
++        }
++    }
++
++    public double calcularTotalXp(){
++        return this.conteudosConcluidos.stream().mapToDouble(conteudo -> conteudo.calcularXp()).sum();
++
++    }
++
++    public String getNome() {
++        return nome;
++    }
++
++    public void setNome(String nome) {
++        this.nome = nome;
++    }
++
++    public Set<Conteudo> getConteudosInscritos() {
++        return conteudosInscritos;
++    }
++
++    public void setConteudosInscritos(Set<Conteudo> conteudosInscritos) {
++        this.conteudosInscritos = conteudosInscritos;
++    }
++
++    public Set<Conteudo> getConteudosConcluidos() {
++        return conteudosConcluidos;
++    }
++
++    public void setConteudosConcluidos(Set<Conteudo> conteudosConcluidos) {
++        this.conteudosConcluidos = conteudosConcluidos;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        Dev dev = (Dev) o;
++        return Objects.equals(nome, dev.nome) && Objects.equals(conteudosInscritos, dev.conteudosInscritos) && Objects.equals(conteudosConcluidos, dev.conteudosConcluidos);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(nome, conteudosInscritos, conteudosConcluidos);
++    }
++}
+Index: src/br/com/dio/desafio/dominio/Conteudo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/br/com/dio/desafio/dominio/Conteudo.java b/src/br/com/dio/desafio/dominio/Conteudo.java
+new file mode 100644
+--- /dev/null	(date 1678373891659)
++++ b/src/br/com/dio/desafio/dominio/Conteudo.java	(date 1678373891659)
+@@ -0,0 +1,26 @@
++package br.com.dio.desafio.dominio;
++
++public abstract class Conteudo {
++    protected static final double XP_PADRA0 = 10;
++
++    private String titulo;
++    private String descricao;
++
++    public abstract double calcularXp();
++
++    public String getTitulo() {
++        return titulo;
++    }
++
++    public void setTitulo(String titulo) {
++        this.titulo = titulo;
++    }
++
++    public String getDescricao() {
++        return descricao;
++    }
++
++    public void setDescricao(String descricao) {
++        this.descricao = descricao;
++    }
++}
